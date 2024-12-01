@@ -7,7 +7,7 @@ const sequelize = new Sequelize({
   dialect: 'mysql',
   username: process.env.DB_USER || 'root',
   password: process.env.DB_PASS || '465835',
-  database: process.env.DB_NAME || 'cointap_db',
+  database: process.env.DB_NAME || 'cubetap_db',
   logging: console.log, // Log queries for debugging
 });
 
@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
 const db = {
   sequelize,
   Sequelize,
-  Coin: require('./coin')(sequelize, Sequelize),
+  Cube: require('./cube')(sequelize, Sequelize),
   User: require('./user')(sequelize, Sequelize),
 };
 

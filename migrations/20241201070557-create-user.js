@@ -1,15 +1,23 @@
+// migrations/{timestamp}-create-users.js
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Coins', {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      value: {
-        type: Sequelize.INTEGER,
+      playerName: {
+        type: Sequelize.STRING,
         allowNull: false,
+      },
+      points: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
+      wallet: {
+        type: Sequelize.INTEGER,
         defaultValue: 0,
       },
       createdAt: {
@@ -22,7 +30,8 @@ module.exports = {
       },
     });
   },
-  down: async (queryInterface) => {
-    await queryInterface.dropTable('Coins');
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable("Users");
   },
 };
